@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="js/jquery-3.5.1.js"></script>
+    <script>
+        $(function (){
+            $("input:button").click(function (){
+                $.ajax({
+                    //请求地址
+                    url : "/login",
+                    //请求方式
+                    type : "post",
+                    //提交数据-json格式的字符串。
+                    data : {name: $("input:text").val(),pass:$("input:password").val()},
+                    //返回值类型
+                    dataType : "text",
+                    //请求的媒体类型
+                    //contentType: "application/json;charset=UTF-8",
+                    //数据，json字符串
+                    //data : JSON.stringify(list),
+                    //请求成功
+                    success : function(result) {
+                        console.log(result);
+                    }
+                })
+            });
+        });
+    </script>
+</head>
+<body>
+<form>
+    <input type="text" name="name"><br>
+    <input type="password" name="pass"><br>
+    <input type="button" value="提交">
+</form>
+</body>
+</html>
